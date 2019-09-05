@@ -26,7 +26,7 @@ household <- read.table("household_power_consumption.txt", sep =";", header = TR
 household <- subset(household,household$Date=="1/2/2007" | household$Date =="2/2/2007")
 
 #########################################
-# 2 - Plotting histogram
+# 3 - Plotting histogram
 #########################################
 
 png("plot1.png", width=480, height=480)
