@@ -24,11 +24,12 @@ if (!file.exists("household_power_consumption.txt")) {
 
 household <- read.table("household_power_consumption.txt", sep =";", header = TRUE)
 household <- subset(household,household$Date=="1/2/2007" | household$Date =="2/2/2007")
+household$DateTime <- strptime(paste(household$Date, household$Time, sep=" "), "%d/%m/%Y %H:%M:%S")
 
 #########################################
-# 2 - Plotting histogram
+# 2 - Plotting
 #########################################
 
-png("plot1.png", width=480, height=480)
-hist(as.numeric(as.character(household$Global_active_power)),col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)")
+png("plot2.png", width=480, height=480)
+plot(household$DateTime, as.numeric(as.character(household$Global_active_power)),type="l",xlab="",ylab="Global Active Power (kilowatts)") 
 dev.off()
